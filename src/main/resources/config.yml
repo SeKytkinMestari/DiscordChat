@@ -1,0 +1,19 @@
+###################################
+#            DiscordChat          #
+# Author ItzKissaz                #
+# Discord: Michael Jackson#5705   #
+###################################
+
+bot:
+  token: "your-token-here"
+  playing-status: "discord-status-here" #leave empty for no status
+  discord-channel: "your-log-channel-id-here"
+
+
+lang:
+  server-starting: "DiscordChat online"
+  server-closing: "DiscordChat offline"
+
+chatformat:
+  minecraft-chat: "§8[§bDISCORD§8] %player%: %message%"
+  discord-chat: "%player%: %message%"
