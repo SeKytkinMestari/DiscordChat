@@ -1,7 +1,6 @@
 name: DiscordChat
 version: '${project.version}'
 main: net.vankila.discordchat.Main
-api-version: 1.18
 prefix: DiscordChat
 load: STARTUP
 authors: [ ItzKissaz ]
