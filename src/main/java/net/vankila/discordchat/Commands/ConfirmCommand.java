@@ -1,6 +1,9 @@
 package net.vankila.discordchat.Commands;
 
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.vankila.discordchat.Discord;
 import net.vankila.discordchat.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,9 +24,19 @@ public class ConfirmCommand implements CommandExecutor {
             int koodi = rand.nextInt(999999);
 
             Main.getInstance().getPlayerDataConfig().set(p.getUniqueId().toString() + ".koodi", koodi);
+            Main.getInstance().getPlayerDataConfig().set(p.getUniqueId().toString() + ".nimi", p.getName());
             Main.getInstance().savePlayerDataConfig();
 
-            p.sendMessage(ChatColor.DARK_AQUA + "Syötä komento !vahvista " + koodi + " kanavalle spam.");
+            try {
+                TextChannel spam = Discord.jda.getTextChannelById(Main.getInstance().getConfig().getString("bot.spam-channel"));
+
+                p.sendMessage(ChatColor.DARK_AQUA + "Syötä komento !vahvista " + koodi + " kanavalle " + spam.getName() +".");
+            } catch (Exception e) {
+                p.sendMessage(ChatColor.RED + "Virhe tapahtui.");
+                Bukkit.getLogger().severe("Kanava ID ei löydetty");
+            }
+
+
 
         }
         return false;

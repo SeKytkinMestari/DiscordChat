@@ -28,7 +28,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        Discord.jda.shutdown();
     }
 
 
@@ -38,7 +38,7 @@ public final class Main extends JavaPlugin {
             Bukkit.getLogger().severe("Bot token hasnt been changed, stopping plugin.");
             Bukkit.getPluginManager().disablePlugin(this);
         } else if(Cause.equals("channel-id-untouched")) {
-            Bukkit.getLogger().severe("channel ID hasnt been changed, stopping plugin.");
+            Bukkit.getLogger().severe("A channel ID hasnt been changed, stopping plugin.");
             Bukkit.getPluginManager().disablePlugin(this);
         }
     }

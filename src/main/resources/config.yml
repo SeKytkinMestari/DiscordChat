@@ -8,6 +8,7 @@ bot:
   token: "your-token-here"
   playing-status: "discord-status-here" #leave empty for no status
   discord-channel: "your-log-channel-id-here"
+  spam-channel: "your-discord-command-channel-id-here"
 
 
 lang:

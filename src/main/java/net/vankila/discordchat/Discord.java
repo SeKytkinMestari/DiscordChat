@@ -25,6 +25,8 @@ public class Discord {
             } if (Main.getInstance().getConfig().getString("bot.discord-channel").equals("your-log-channel-id-here")) {
                 Main.getInstance().disablePlugin("channel-id-untouched");
                 return;
+            } if (Main.getInstance().getConfig().getString("bot.spam-channel").equals("your-discord-command-channel-id-here")) {
+                Main.getInstance().disablePlugin("channel-id-untouched");
             }
 
             jda = JDABuilder.createDefault(Main.getInstance().getConfig().getString("bot.token")).enableIntents(GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS).build();
@@ -39,7 +41,7 @@ public class Discord {
             }
 
         } catch(LoginException | InterruptedException e){
-            Bukkit.getLogger().severe("An error occurred while trying to log into the discord bot.");
+            Bukkit.getLogger().severe("An error occurred while trying to log into the discord bot. (Token maybe wrong?)");
             e.printStackTrace();
         }
     }
