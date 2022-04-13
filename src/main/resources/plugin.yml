@@ -6,3 +6,6 @@ load: STARTUP
 authors: [ ItzKissaz ]
 description: Chat on minecraft Through Discord
 website: Vankila.net
+commands:
+  vahvista:
+    description: .

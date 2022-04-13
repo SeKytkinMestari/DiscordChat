@@ -1,10 +1,12 @@
 package net.vankila.discordchat;
 
 import lombok.Getter;
+import net.vankila.discordchat.Commands.ConfirmCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.checkerframework.checker.units.qual.C;
 import org.slf4j.event.Level;
@@ -24,6 +26,7 @@ public final class Main extends JavaPlugin {
         instance = this;
         saveDefaultConfig();
         new Discord();
+        getCommand("vahvista").setExecutor(new ConfirmCommand());
     }
 
     @Override
